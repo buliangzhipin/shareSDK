@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Reflection;
+using UnityEngine.UI;
 
 namespace cn.sharesdk.unity3d
 {

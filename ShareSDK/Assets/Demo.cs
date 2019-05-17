@@ -6,10 +6,12 @@ using cn.sharesdk.unity3d;
 using LitJson;
 public class Demo : MonoBehaviour
 {
+#if test
 
     public GUISkin demoSkin;
     public ShareSDK ssdk;
     // Use this for initialization
+
     void Start()
     {
         ssdk = gameObject.GetComponent<ShareSDK>();
@@ -70,33 +72,33 @@ public class Demo : MonoBehaviour
             content.SetHidePlatforms(platfsList);
 
             content.SetText("this is a test string.");
-            content.SetImageUrl("http://ww3.sinaimg.cn/mw690/be159dedgw1evgxdt9h3fj218g0xctod.jpg");
+            // content.SetImageUrl("http://ww3.sinaimg.cn/mw690/be159dedgw1evgxdt9h3fj218g0xctod.jpg");
             content.SetTitle("test title");
 
             //(Android only) 针对Android绕过审核的多图分享，传图片String数组 
             String[] imageArray = { "/sdcard/test.jpg", "http://f1.webshare.mob.com/dimgs/1c950a7b02087bf41bc56f07f7d3572c11dfcf36.jpg", "/sdcard/test.jpg" };
             content.SetImageArray(imageArray);
 
-            content.SetTitleUrl("http://www.mob.com");
-            content.SetSite("Mob-ShareSDK");
-            content.SetSiteUrl("http://www.mob.com");
-            content.SetUrl("http://www.mob.com");
-            content.SetComment("test description");
-            content.SetMusicUrl("http://i.y.qq.com/v8/playsong.html?hostuin=0&songid=&songmid=002x5Jje3eUkXT&_wv=1&source=qq&appshare=iphone&media_mid=002x5Jje3eUkXT");
-            content.SetShareType(ContentType.Image);
+            // content.SetTitleUrl("http://www.mob.com");
+            // content.SetSite("Mob-ShareSDK");
+            // content.SetSiteUrl("http://www.mob.com");
+            // content.SetUrl("http://www.mob.com");
+            // content.SetComment("test description");
+            // content.SetMusicUrl("http://i.y.qq.com/v8/playsong.html?hostuin=0&songid=&songmid=002x5Jje3eUkXT&_wv=1&source=qq&appshare=iphone&media_mid=002x5Jje3eUkXT");
+            // content.SetShareType(ContentType.Image);
 
-            //不同平台分享不同内容
-            ShareContent customizeShareParams = new ShareContent();
-            customizeShareParams.SetText("Sina share content");
-            customizeShareParams.SetImageUrl("http://git.oschina.net/alexyu.yxj/MyTmpFiles/raw/master/kmk_pic_fld/small/107.JPG");
-            customizeShareParams.SetShareType(ContentType.Text);
-            customizeShareParams.SetObjectID("SinaID");
-            content.SetShareContentCustomize(PlatformType.SinaWeibo, customizeShareParams);
-            //优先客户端分享
-            content.SetEnableClientShare(true);
+            // //不同平台分享不同内容
+            // ShareContent customizeShareParams = new ShareContent();
+            // customizeShareParams.SetText("Sina share content");
+            // customizeShareParams.SetImageUrl("http://git.oschina.net/alexyu.yxj/MyTmpFiles/raw/master/kmk_pic_fld/small/107.JPG");
+            // customizeShareParams.SetShareType(ContentType.Text);
+            // customizeShareParams.SetObjectID("SinaID");
+            // content.SetShareContentCustomize(PlatformType.SinaWeibo, customizeShareParams);
+            // //优先客户端分享
+            // content.SetEnableClientShare(true);
 
-            //使用微博API接口应用内分享 iOS only
-            content.SetEnableSinaWeiboAPIShare(true);
+            // //使用微博API接口应用内分享 iOS only
+            // content.SetEnableSinaWeiboAPIShare(true);
 
             //通过分享菜单分享
             ssdk.ShowPlatformList(null, content, 100, 100);
@@ -280,6 +282,7 @@ public class Demo : MonoBehaviour
         //         }
     }
 
+
     void OnAuthResultHandler(int reqID, ResponseState state, PlatformType type, Hashtable result)
     {
         if (state == ResponseState.Success)
@@ -391,4 +394,5 @@ public class Demo : MonoBehaviour
             print("cancel !");
         }
     }
+#endif
 }

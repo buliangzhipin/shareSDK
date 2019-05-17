@@ -53,10 +53,10 @@ namespace cn.sharesdk.unity3d
         // public FacebookAccount facebookAccount;//iOS端无需配置
         // public Douyin douyin; //抖音
 #if UNITY_ANDROID
-        public FourSquare fourSquare;
+        // public FourSquare fourSquare;
         //安卓配置印象笔记国内与国际版直接在Evernote中配置
 #elif UNITY_IPHONE
-		public Copy copy;
+		// public Copy copy;
 		// public YixinFavorites yixinFavorites;					//易信收藏，仅iOS端支持							[仅支持iOS端]
 		// public YixinSeries yixinSeries;							//iOS端易信系列, 可直接配置易信三个子平台			[仅支持iOS端]
 		public WechatSeries wechatSeries;						//iOS端微信系列, 可直接配置微信三个子平台 		[仅支持iOS端]
